@@ -2,8 +2,9 @@
 let addCity = document.querySelector('.name');
 let buttonAdd = document.querySelector('.add');
 let todoCity = document.querySelector('.addCity');
+let bntDel = document.querySelector('delete')
 let cityList = [];
-var json_city = [
+let json_city = [
     {"id":"defad517-2fc8-43a4-ae01-aa0ef0d2f264",
     "name":"Сочи",
     "address":"ул. Роз 117, офис 403"},
@@ -35,12 +36,13 @@ buttonAdd.addEventListener('click', function(){
         todo: addCity.value
     };
 
-    cityList.push(newCity);
+    if(addCity.value === 'Сочи', 'Краснодар', 'Пятигорск', 'Владикавказ', 'Ростов-на-Дону', 'Волгоград') {
+        cityList.push(newCity);
     displayMessages();
-    localStorage.setItem('todo', JSON.stringify(cityList));
+    localStorage.setItem('todo', JSON.stringify(cityList)); 
+    } 
+
 });
-
-
 
 
     function displayMessages(){
@@ -50,27 +52,30 @@ buttonAdd.addEventListener('click', function(){
         displayMessage += `
     <li class="addLi"
         <span class="item" id= 'item_${i}'>
-        <span class= 'item_${i}'>${item.todo}</span></span>
-    </li>
+        <span class= 'item_${i}'>${item.todo}</span></span><button class='delete'><img class="deleteImg" src="resources/Component 2.jpg" alt="del"></button>
+    </li> 
     `;
+        todoCity.innerHTML = displayMessage; 
 
-    let btn = document.createElement('button');
-    btn.className = 'delete'
-        
-        buttonDel.addEventListener('click', e => {
-            console.log(btn)
-        })
+  })  
+    }
 
-    })
-}
 
- 
+    document.querySelector('.delete').onclick = function () { 
+    cityList.forEach(function(item, i){
+          cityList.splice(i, 1);  
+              displayMessages();
+        localStorage.setItem('todo', JSON.stringify(cityList));
+      });
+}   
+
+
 
 /*
-todoCity.addEventListener('contextmenu', function(event){
+
     cityList.forEach(function(item, i){
-        if(item.todoCity === event.target.innerHTML) {
-            cityList.splice(i, 1);
+        if(event.ctrlKey) {
+        cityList.splice(i, 1);    
         displayMessages();
         localStorage.setItem('todo', JSON.stringify(cityList));
         }
@@ -78,12 +83,14 @@ todoCity.addEventListener('contextmenu', function(event){
     })
 })
 */
+/*
 
+        */
 
 /*
 
 
-<button class='delete'><img class="deleteImg" src="resources/Component 2.jpg" alt="del"></button>
+
 
 
 console.log()
