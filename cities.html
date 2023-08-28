@@ -7,7 +7,7 @@
     <title>Города</title>
 </head>
 <body>
-    <section class="list1">
+    <section class="panelMenu">
         <div class="menu">
            <ul>
             <li><img class="icon" src="resources/Component 1.png" alt="icon"><b>Продукты</b></li>
@@ -23,24 +23,25 @@
            </ul>
         </div>
     </section>
-    <section class="list2">
+    <section class="panelCities">
         <span class="alert"><img class="master" src="resources/Lowercase.png" alt="icon">
-        <p class="e-mail">Admin e-mail</p></span>
-    <div class="info">
-        <div class="info1"> 
-            <input class="name" type="search" id="data_city" placeholder="  Введите название города">
-            <input class="address" type="search" id="data_address" placeholder="  Введите адрес">
-            <button class="add" type="button"><p class="add1">Добавить город</p></button>
-            <div class="data" id="data_city"><span>Город</span></div>
-            <div class="data1"><span>Адрес</span></div>
-            <div class="data_city" >  
-                <ul class="addCity">
+            <p class="e-mail">Admin e-mail</p>
+        </span>
 
-                </ul>
+    <div class="citiesStyle">
+        <div class="citiesContainer"> 
+            <input class="name" type="search" placeholder="  Введите название города">
+            <input class="address" type="search" placeholder="  Введите адрес">
+            <button class="buttonAddCity" type="button"><p class="buttonAddCityStyle">Добавить город</p></button>
+            <div class="labelCity"><span>Город</span></div>
+            <div class="labelAddress"><span>Адрес</span></div>
+            <div class="cities" >  
+                <ul class="cityItem"> </ul>
             </div>
-          
-         
-
+            <div class="addressContainer">
+                <ul class="addressItem"></ul>
+            </div>
+        </div>
     </div>
     </section>
 <script src="data_city1.js"></script>
